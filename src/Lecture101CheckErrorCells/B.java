@@ -27,13 +27,13 @@ public class B {
 		for(int i = 0;i<rowNumber;i++) {
 			
 			row = sheet.getRow(i);
-			this.setRow(i);
+			this.setRow(i); // call method to convert Row to Real Row ID
 			int cellNumber = row.getPhysicalNumberOfCells();
 			
 			for(int j = 0;j<cellNumber;j++) {
 				
 				cell = row.getCell(j);
-				this.setCell(j);
+				this.setCell(j); // call method to convert cell to Letter ID
 				if(row.getCell(j).getCellType()==XSSFCell.CELL_TYPE_STRING) {
 					
 					if(cell.getStringCellValue().equalsIgnoreCase("Error")) {
