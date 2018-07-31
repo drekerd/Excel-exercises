@@ -24,7 +24,7 @@ public class B {
 		
 		FileOutputStream os = new FileOutputStream("/Users/mariosilva/Documents/Java/TextFilesForTesting/Lecture94Exercise/FileToWrite/NewFile.xlsx");
 		XSSFWorkbook wkbook = new XSSFWorkbook();
-		XSSFSheet swrite = wk.createSheet("Tester");
+		XSSFSheet swrite = wkbook.createSheet("Tester");
 		XSSFRow row; //swrite.createRow(0);
 		XSSFCell cell; //row.createCell(0);
 		
@@ -35,34 +35,29 @@ public class B {
 			int c = r1.getPhysicalNumberOfCells();
 			row = swrite.createRow(i);
 			for(int j = 0;j<c;j++) {
-				
-//					System.out.print(r1.getCell(j)+" ");
 					
 					XSSFCell c1 = r1.getCell(j);
 					cell = row.createCell(j);
 					
-//					System.out.print(c1+" ");
-//					row.createCell(j);
 					
 					if(r1.getCell(j).getCellType()==HSSFCell.CELL_TYPE_NUMERIC) {
 						
 						cell.setCellValue(c1.getNumericCellValue());
-//						System.out.print(c1.getNumericCellValue()+" ");
-//						wkbook.write(os);
+						System.out.print(c1.getNumericCellValue()+" ");
+						wkbook.write(os);
 						
-//					}else if(r1.getCell(j).getCellType()==HSSFCell.CELL_TYPE_STRING) {
-////						
-//						cell.setCellValue(c1.getStringCellValue());
-//						System.out.print(c1.getStringCellValue()+" ");
-//						wkbook.write(os);
-//						wkbook.close();
-//					}else if(r1.getCell(j).getCellType()==HSSFCell.CELL_TYPE_BOOLEAN){
-//						cell.setCellValue(c1.getBooleanCellValue());
-////						System.out.print(c1.getBooleanCellValue()+" ");
-////						wkbook.write(os);
-////						wkbook.close();
-//					}else if(r1.getCell(j).getCellType()==HSSFCell.CELL_TYPE_BLANK) {
-//						System.out.print("Empty");
+					}else if(r1.getCell(j).getCellType()==HSSFCell.CELL_TYPE_STRING) {
+					
+						cell.setCellValue(c1.getStringCellValue());
+						
+						wkbook.write(os);
+						
+					}else if(r1.getCell(j).getCellType()==HSSFCell.CELL_TYPE_BOOLEAN){
+						cell.setCellValue(c1.getBooleanCellValue());
+						System.out.print(c1.getBooleanCellValue()+" ");
+							
+					}else if(r1.getCell(j).getCellType()==HSSFCell.CELL_TYPE_BLANK) {
+						System.out.print("Empty");
 					}
 					
 			}
