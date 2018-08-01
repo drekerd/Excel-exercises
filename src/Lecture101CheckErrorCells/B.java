@@ -38,7 +38,7 @@ public class B {
 					
 					if(cell.getStringCellValue().equalsIgnoreCase("Error")) {
 						
-						System.out.println("Row "+this.setRow+" Cell "+this.setCell+" contain Error");
+						System.out.println("Row "+this.setRow(i)+" Cell "+this.setCell(j)+" contain Error");
 						
 					}
 				}
